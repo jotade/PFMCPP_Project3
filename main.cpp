@@ -76,17 +76,17 @@ Thing 2) Midi keyboard controller
  */
 
 /*
-Thing 3) Audio Mixer
+Thing 3) Airport
 5 properties:
-    1) number of audio inputs
-    2) number of audio outputs
-    3) master bus
-    4) aux bus
-    5) send bus
+    1) runway
+    2) passengers terminal
+    3) control tower
+    4) fire fighters station
+    5) cargo apron
 3 things it can do:
-    1) mix incoming audio signals
-    2) route mixed audio to outputs
-    3) monitor input through headphones
+    1) Manage airline flights
+    2) Manage passengers
+    3) Manage aircraft traffic 
  */
 
 /*
@@ -104,17 +104,17 @@ Thing 4) Audio mixer channel strip
  */
 
 /*
-Thing 10) Airport
+Thing 10) Audio Mixer
 5 properties:
-    1) runway
-    2) passengers terminal
-    3) control tower
-    4) fire fighters station
-    5) cargo apron
+    1) number of audio inputs
+    2) number of audio outputs
+    3) master bus
+    4) aux bus
+    5) send bus
 3 things it can do:
-    1) Manage airline flights
-    2) Manage passengers
-    3) Manage aircraft traffic 
+    1) mix incoming audio signals
+    2) route mixed audio to outputs
+    3) monitor input through headphones 
  */
 
 
