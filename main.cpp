@@ -53,59 +53,59 @@ Thing: Car Wash
  */
 
 /*
-Thing 1)
+Thing 1) Aircraft
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) approach speed
+    2) cruise altitude
+    3) max speed
+    4) max take off weight 
+    5) gross weight
 3 things it can do:
-    1)
-    2)
-    3)
+    1) yaw movement
+    2) roll movement
+    3) pitch movement
  */
 
 /*
-Thing 2)
+Thing 2) Midi keyboard controller
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) pitch bend
+    2) modulation
+    3) octave
+    4) volume
+    5) foot switch pressed
 3 things it can do:
-    1)
-    2)
-    3)
+    1) send midi notes
+    2) send midi volume variations
+    3) change keyboard octaves
  */
 
 /*
-Thing 3)
+Thing 3) Audio Mixer
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) number of audio inputs
+    2) number of audio outputs
+    3) master bus
+    4) aux bus
+    5) send bus
 3 things it can do:
-    1)
-    2)
-    3)
+    1) mix incoming audio signals
+    2) route mixed audio to outputs
+    3) monitor input through headphones
  */
 
 /*
-Thing 4)
+Thing 4) Audio mixer channel strip
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) equalizer controls
+    2) compressor controls
+    3) input signal
+    4) fader
+    5) input gain
 3 things it can do:
-    1)
-    2)
-    3)
+    1) adjust input gain
+    2) adjust input frequencies with the equalizer
+    3) control audio dynamics through the compressor
  */
 
 
