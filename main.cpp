@@ -104,17 +104,17 @@ Thing 4) Audio mixer channel strip
  */
 
 /*
-Thing 10)
+Thing 10) Airport
 5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
+    1) runway
+    2) passengers terminal
+    3) control tower
+    4) fire fighters station
+    5) cargo apron
 3 things it can do:
-    1)
-    2)
-    3)
+    1) Manage airline flights
+    2) Manage passengers
+    3) Manage aircraft traffic 
  */
 
 
