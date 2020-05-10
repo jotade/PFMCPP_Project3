@@ -107,92 +107,7 @@ Thing 3) Airport
  */
 
 /*
-Thing 4) Audio mixer channel strip
-5 properties:
-    1) equalizer controls
-    2) compressor controls
-    3) input signal
-    4) fader
-    5) input gain
-3 things it can do:
-    1) adjust input gain
-    2) adjust input frequencies with the equalizer
-    3) control audio dynamics through the compressor
- */
-
-/*
-Thing 5)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 6)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 7)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 8)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-/*
-Thing 9)
-5 properties:
-    1)
-    2)
-    3)
-    4)
-    5)
-3 things it can do:
-    1)
-    2)
-    3)
- */
-
-
-/*
-Thing 10) Audio Mixer
+Thing 4) Audio mixer
 5 properties:
     1) number of audio inputs
     2) number of audio outputs
@@ -203,6 +118,91 @@ Thing 10) Audio Mixer
     1) mix incoming audio signals
     2) route mixed audio to outputs
     3) monitor input through headphones 
+ */
+
+/*
+Thing 5) Equalizer
+5 properties:
+    1) high pass switch 
+    2) low frequency controls
+    3) low-mid frequency controls
+    4) mid frequency controls
+    5) high frequency controls
+3 things it can do:
+    1) lower frequencies 
+    2) boost frequencies
+    3) cut frequencies
+ */
+
+/*
+Thing 6) Compressor
+5 properties:
+    1) compressor switch button
+    2) threshold knob
+    3) gain reduction meter
+    4) atack
+    5) sustain
+3 things it can do:
+    1) add sustain to control dynamics
+    2) make weak signals louder
+    3) compress loud signals
+ */
+
+/*
+Thing 7) Input controls
+5 properties:
+    1) hi-z selector switch
+    2) line selector switch
+    3) 48v selector switch
+    4) high pass filter switch
+    5) gain knob
+3 things it can do:
+    1) select input
+    2) turn on phanto power
+    3) adjust input gain
+ */
+
+/*
+Thing 8) Routing controls
+5 properties:
+    1) fader
+    2) post fader selector switch
+    3) master selector switch
+    4) bus selector switch
+    5) mute
+3 things it can do:
+    1) route audio signal to master bus
+    2) mute channel
+    3) adjust volume
+ */
+
+/*
+Thing 9) Send and effects controls
+5 properties:
+    1) effects channel 1
+    2) effects channel 2
+    3) send 1
+    4) send 2
+    5) send 3
+3 things it can do:
+    1) add effects to audio signal
+    2) send audio to external effects
+    3) send monitor sub mixes
+ */
+
+
+/*
+Thing 10) Audio mixer channel strip
+    5 properties:
+    1) equalizer controls
+    2) compressor controls
+    3) input controls
+    4) routing controls
+    5) send and effects controls
+3 things it can do:
+    1) adjust input gain
+    2) adjust input frequencies with the equalizer
+    3) control audio dynamics through the compressor
  */
 
 
