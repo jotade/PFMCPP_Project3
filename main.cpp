@@ -123,11 +123,11 @@ Thing 4) Audio mixer
 /*
 Thing 5) Equalizer
 5 properties:
-    1) high pass switch 
-    2) low frequency controls
-    3) low-mid frequency controls
-    4) mid frequency controls
-    5) high frequency controls
+    1) low gain level 
+    2) mid frequency Hz
+    3) mid gain level
+    4) high frequency Hz
+    5) high gain level
 3 things it can do:
     1) lower frequencies 
     2) boost frequencies
@@ -137,11 +137,11 @@ Thing 5) Equalizer
 /*
 Thing 6) Compressor
 5 properties:
-    1) compressor switch button
-    2) threshold knob
-    3) gain reduction meter
-    4) atack
-    5) sustain
+    1) threshold
+    2) atack
+    3) sustain
+    4) release
+    5) gain reduction
 3 things it can do:
     1) add sustain to control dynamics
     2) make weak signals louder
@@ -155,21 +155,21 @@ Thing 7) Input controls
     2) line selector switch
     3) 48v selector switch
     4) high pass filter switch
-    5) gain knob
+    5) gain level
 3 things it can do:
     1) select input
-    2) turn on phanto power
+    2) turn on phantom power
     3) adjust input gain
  */
 
 /*
 Thing 8) Routing controls
 5 properties:
-    1) fader
+    1) send level
     2) post fader selector switch
     3) master selector switch
     4) bus selector switch
-    5) mute
+    5) mute switch
 3 things it can do:
     1) route audio signal to master bus
     2) mute channel
@@ -179,11 +179,11 @@ Thing 8) Routing controls
 /*
 Thing 9) Send and effects controls
 5 properties:
-    1) effects channel 1
-    2) effects channel 2
-    3) send 1
-    4) send 2
-    5) send 3
+    1) send 1 effect type
+    2) send 2 effect type
+    3) send 1 gain level
+    4) send 2 gain level
+    5) send 3 gain level
 3 things it can do:
     1) add effects to audio signal
     2) send audio to external effects
