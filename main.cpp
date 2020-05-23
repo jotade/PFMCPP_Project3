@@ -113,148 +113,265 @@ struct CarWash //                                   1) define an empty struct fo
     Car carBeingServiced;  
 };
 
+struct Aircraft {
+    //1) approach speed
+    int approachSpeed = 0;
+    //2) cruise altitude
+    int cruiseAltitude = 0;
+    //3) max speed
+    int maxSpeed = 0;
+    //4) max take off weight 
+    float maxTakeOffWeight = 0.0f;
+    //5) gross weight
+    float grossWeight = 0.0f;
 
-/*
-Thing 1) Aircraft
-5 properties:
-    1) approach speed
-    2) cruise altitude
-    3) max speed
-    4) max take off weight 
-    5) gross weight
-3 things it can do:
-    1) yaw movement
-    2) roll movement
-    3) pitch movement
- */
+    //1) yaw movement
+    void yaw(int degrees);
+    //2) roll movement
+    void roll(int degrees);
+    //3) pitch movement
+    void pitch(int degrees);
+};
 
-/*
-Thing 2) Midi keyboard controller
-5 properties:
-    1) pitch bend
-    2) modulation
-    3) octave
-    4) volume
-    5) foot switch pressed
-3 things it can do:
-    1) send midi notes
-    2) send midi volume variations
-    3) change keyboard octaves
- */
+struct MidiKeyboardController {
+    //1) pitch bend
+    int pitchBend = 0;
+    //2) modulation
+    int modulation = 0;
+    //3) octave
+    int octave = 0;
+    //4) volume
+    int volume = 0;
+    //5) foot switch pressed
+    bool isFootSwitchPressed = 0;
 
-/*
-Thing 3) Airport
-5 properties:
-    1) runway
-    2) passengers terminal
-    3) control tower
-    4) fire fighters station
-    5) cargo apron
-3 things it can do:
-    1) Manage airline flights
-    2) Manage passengers
-    3) Manage aircraft traffic 
- */
+    //1) send midi notes
+    void playNote(int note);
+    //2) send midi volume variations
+    void adjustVolume(int volume);
+    //3) change keyboard octaves
+    void selectOctave(int octave);
+};
 
-/*
-Thing 4) Audio mixer
-5 properties:
-    1) number of audio inputs
-    2) number of audio outputs
-    3) master bus
-    4) aux bus
-    5) send bus
-3 things it can do:
-    1) mix incoming audio signals
-    2) route mixed audio to outputs
-    3) monitor input through headphones 
- */
+struct Airport {
+    //1) runway
+    struct Runway {
+      int orientation = 0;
+      float length = 0.0f;
+      float width = 0.0f;
+    };
+    //2) passengers terminal
+    struct PassengersTerminal {
+        int numberOfGates;
+        int numberOfAirlineCounters;
+        int numberOfRestaurants;
+    };
+    //3) control tower
+    struct ControlTower {
+        float radioFrequency = 0.0f;
+    };
+    //4) fire fighters station
+    struct FireStation {
+        int numberOfTrucks = 0;
+        int numberOfFireman = 0;
+    };
+    //5) cargo apron
+    struct CargoApron {
+        int numberOfSpots = 0;
+    };
 
-/*
-Thing 5) Equalizer
-5 properties:
-    1) low gain level 
-    2) mid frequency Hz
-    3) mid gain level
-    4) high frequency Hz
-    5) high gain level
-3 things it can do:
-    1) lower frequencies 
-    2) boost frequencies
-    3) cut frequencies
- */
+    //1) Manage airline flights
+    void manageAirlineFlights(CargoApron apron);
+    //2) Manage passengers
+    void managePassengers(PassengersTerminal terminal);
+    //3) Manage aircraft traffic 
+    void manageAircraftTraffic(Runway runway);
 
-/*
-Thing 6) Compressor
-5 properties:
-    1) threshold
-    2) atack
-    3) sustain
-    4) release
-    5) gain reduction
-3 things it can do:
-    1) add sustain to control dynamics
-    2) make weak signals louder
-    3) compress loud signals
- */
+    Runway runway;
+    PassengersTerminal terminal;
+    ControlTower tower;
+    FireStation firestation;
+    CargoApron apron;
+};
 
-/*
-Thing 7) Input controls
-5 properties:
-    1) hi-z selector switch
-    2) line selector switch
-    3) 48v selector switch
-    4) high pass filter switch
-    5) gain level
-3 things it can do:
-    1) select input
-    2) turn on phantom power
-    3) adjust input gain
- */
+struct AudioMixer {
 
-/*
-Thing 8) Routing controls
-5 properties:
-    1) send level
-    2) post fader selector switch
-    3) master selector switch
-    4) bus selector switch
-    5) mute switch
-3 things it can do:
-    1) route audio signal to master bus
-    2) mute channel
-    3) adjust volume
- */
+    struct MasterBus {
+        int leftFaderLevel = 0;
+        int rightFaderLevel = 0;
+        bool standBySwitchOn = false;
+        int leftChannelOutputGain = 0;
+        int rightChannelOutputGain = 0;
 
-/*
-Thing 9) Send and effects controls
-5 properties:
-    1) send 1 effect type
-    2) send 2 effect type
-    3) send 1 gain level
-    4) send 2 gain level
-    5) send 3 gain level
-3 things it can do:
-    1) add effects to audio signal
-    2) send audio to external effects
-    3) send monitor sub mixes
- */
+        void toggleStandby(bool on);
+        void sendLeftAudio(int gain);
+        void sendRightAudio(int gain);
+    };
 
+    struct AuxBus {
+        int leftFaderLevel = 0;
+        int rightFaderLevel = 0;
+        bool muteSwitchOn = false;
+        int leftChannelOutputGain = 0;
+        int rightChannelOutputGain = 0;
 
-/*
-Thing 10) Audio mixer channel strip
-    5 properties:
-    1) equalizer controls
-    2) compressor controls
-    3) input controls
-    4) routing controls
-    5) send and effects controls
-3 things it can do:
-    1) adjust input gain
-    2) adjust input frequencies with the equalizer
-    3) control audio dynamics through the compressor
- */
+        void toggleMute(bool on);
+        void sendLeftAudio(int gain);
+        void sendRightAudio(int gain);
+    };
 
+    struct SendBus {
+        int leftFaderLevel = 0;
+        int rightFaderLevel = 0;
+        bool muteSwitchOn = false;
+        int leftChannelOutputGain = 0;
+        int rightChannelOutputGain = 0;
+
+        void toggleMute(bool on);
+        void sendLeftAudio(int gain);
+        void sendRightAudio(int gain);
+    };
+
+    //1) number of audio inputs
+    int audioInputCount = 0;
+    //2) number of audio outputs
+    int audioOutputCount = 0;
+    //3) master bus
+    MasterBus masterBus;
+    //4) aux bus
+    AuxBus auxBus;
+    //5) send bus
+    SendBus sendBus;
+
+    //1) mix incoming audio signals
+    void mixAudio();
+    //2) route mixed audio to outputs
+    void routeAudio();
+    //3) monitor input through headphones 
+    void monitorHeadphones();
+ 
+};
+
+struct Equalizer {
+
+    //1) low gain level 
+    int lowGainLevel = 0;
+    //2) mid frequency Hz
+    float midFrequencyHz = 0.0f;
+    //3) mid gain level
+    int midGainLevel = 0;
+    //4) high frequency Hz
+    float highFrequencyHz = 0.0f;
+    //5) high gain level
+    int highGainLevel = 0;
+
+    //1) lower frequencies 
+    void lower(float Hz);
+    //2) boost frequencies
+    void boost(float Hz);
+    //3) cut frequencies
+    bool highPass(bool on);
+};
+
+struct Compressor {
+    //1) threshold
+    float threshold = 0.0;
+    //2) atack
+    float atack = 0.0;
+    //3) sustain
+    float sustain = 0.0;
+    //4) release
+    float release = 0.0;
+    //5) gain reduction
+    float ratio = 0.0;
+
+    //1) add sustain to control dynamics
+    void controlDynamics(float threshold, float atack, float release);
+    //2) make weak signals louder
+    void controlDynamics(float threshold, float atack, float release,int makeUpGain);
+    //3) compress loud signals
+    void controlDynamics(float threshold, float atack, float release,float ratio);
+};
+
+struct InputControls {
+    //1) hi-z selector switch
+    bool highImpedanceOn = false;
+    //2) line selector switch
+    bool engageLineInput = false;
+    //3) 48v selector switch
+    bool phantomPowerOn = false;
+    //4) high pass filter switch
+    bool engageHighPassFilter = false;
+    //5) gain level
+    float gainLevel = 0;
+
+    //1) select input
+    void selectInput(bool lineInputOn);
+    //2) turn on phantom power
+    void togglePhantomPower(bool phantomOn);
+    //3) adjust input gain
+    void inputGain(int level);
+};
+
+struct RoutingControls {
+    //1) send level
+    int sendLevel = 0;
+    //2) post fader selector switch
+    bool postFaderOn = false;
+    //3) master selector switch
+    bool routeToMaster = false;
+    //4) bus selector switch
+    bool routeToBus = false;
+    //5) mute switch
+    bool muteOn = false;
+
+    //1) route audio signal to master bus
+    void routeSignal(bool selectBus, bool selectMaster);
+    //2) mute channel
+    void toggleMute(bool mute);
+    //3) adjust volume
+    void setVolume(int level);
+};
+
+struct SendFXControls {
+    //1) send 1 effect type
+    std::string effect1Selected = "Reverb";
+    //2) send 2 effect type
+    std::string effect2Selected = "Delay";
+    //3) send 1 gain level
+    int gainLevel1 = 0;
+    //4) send 2 gain level
+    int gainLevel2 = 0;
+    //5) send 3 gain level
+    int gainLevel3 = 0;
+
+    //1) add effects to audio signal
+    void addFX(int fxSelected, int gainLevel);
+    //2) send audio to external effects
+    void sendToFx(int gainLevel);
+    //3) send monitor sub mixes
+    void sendToMonitorOutput(int gainLevel);
+};
+
+struct ChannelStrip {
+    //1) equalizer controls
+    Equalizer equalizer;
+    //2) compressor controls
+    Compressor compressor;
+    //3) input controls
+    InputControls inputControls;
+    //4) routing controls
+    RoutingControls routingControls;
+    //5) send and effects controls
+    SendFXControls sends;
+
+    //1) adjust input gain
+    void setInputGain(InputControls input);
+    //2) adjust input frequencies with the equalizer
+    void setTone(Equalizer eq);
+    //3) control audio dynamics through the compressor
+    void compress(Compressor compressor);
+};
 
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
