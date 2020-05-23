@@ -113,7 +113,8 @@ struct CarWash //                                   1) define an empty struct fo
     Car carBeingServiced;  
 };
 
-struct Aircraft {
+struct Aircraft 
+{
     //1) approach speed
     int approachSpeed = 0;
     //2) cruise altitude
@@ -126,14 +127,15 @@ struct Aircraft {
     float grossWeight = 0.0f;
 
     //1) yaw movement
-    void yaw(int degrees);
+    int yaw(int degrees);
     //2) roll movement
-    void roll(int degrees);
+    int roll(int degrees);
     //3) pitch movement
-    void pitch(int degrees);
+    int pitch(int degrees);
 };
 
-struct MidiKeyboardController {
+struct MidiKeyboardController 
+{
     //1) pitch bend
     int pitchBend = 0;
     //2) modulation
@@ -146,46 +148,52 @@ struct MidiKeyboardController {
     bool isFootSwitchPressed = 0;
 
     //1) send midi notes
-    void playNote(int note);
+    int playNote(int note);
     //2) send midi volume variations
-    void adjustVolume(int volume);
+    int adjustVolume(int volume);
     //3) change keyboard octaves
     void selectOctave(int octave);
 };
 
-struct Airport {
+struct Airport 
+{
     //1) runway
-    struct Runway {
+    struct Runway 
+    {
       int orientation = 0;
       float length = 0.0f;
       float width = 0.0f;
     };
     //2) passengers terminal
-    struct PassengersTerminal {
+    struct PassengersTerminal 
+    {
         int numberOfGates;
         int numberOfAirlineCounters;
         int numberOfRestaurants;
     };
     //3) control tower
-    struct ControlTower {
+    struct ControlTower 
+    {
         float radioFrequency = 0.0f;
     };
     //4) fire fighters station
-    struct FireStation {
+    struct FireStation 
+    {
         int numberOfTrucks = 0;
         int numberOfFireman = 0;
     };
     //5) cargo apron
-    struct CargoApron {
+    struct CargoApron 
+    {
         int numberOfSpots = 0;
     };
 
     //1) Manage airline flights
-    void manageAirlineFlights(CargoApron apron);
+    CargoApron manageAirlineFlights(CargoApron apron);
     //2) Manage passengers
-    void managePassengers(PassengersTerminal terminal);
+    PassengersTerminal managePassengers(PassengersTerminal terminal);
     //3) Manage aircraft traffic 
-    void manageAircraftTraffic(Runway runway);
+    Runway manageAircraftTraffic(Runway runway);
 
     Runway runway;
     PassengersTerminal terminal;
@@ -194,9 +202,11 @@ struct Airport {
     CargoApron apron;
 };
 
-struct AudioMixer {
+struct AudioMixer 
+{
 
-    struct MasterBus {
+    struct MasterBus 
+    {
         int leftFaderLevel = 0;
         int rightFaderLevel = 0;
         bool standBySwitchOn = false;
@@ -208,7 +218,8 @@ struct AudioMixer {
         void sendRightAudio(int gain);
     };
 
-    struct AuxBus {
+    struct AuxBus 
+    {
         int leftFaderLevel = 0;
         int rightFaderLevel = 0;
         bool muteSwitchOn = false;
@@ -220,14 +231,15 @@ struct AudioMixer {
         void sendRightAudio(int gain);
     };
 
-    struct SendBus {
+    struct SendBus 
+    {
         int leftFaderLevel = 0;
         int rightFaderLevel = 0;
         bool muteSwitchOn = false;
         int leftChannelOutputGain = 0;
         int rightChannelOutputGain = 0;
 
-        void toggleMute(bool on);
+        bool toggleMute(bool on);
         void sendLeftAudio(int gain);
         void sendRightAudio(int gain);
     };
@@ -244,7 +256,7 @@ struct AudioMixer {
     SendBus sendBus;
 
     //1) mix incoming audio signals
-    void mixAudio();
+    double mixAudio();
     //2) route mixed audio to outputs
     void routeAudio();
     //3) monitor input through headphones 
@@ -252,7 +264,8 @@ struct AudioMixer {
  
 };
 
-struct Equalizer {
+struct Equalizer 
+{
 
     //1) low gain level 
     int lowGainLevel = 0;
@@ -266,14 +279,15 @@ struct Equalizer {
     int highGainLevel = 0;
 
     //1) lower frequencies 
-    void lower(float Hz);
+    float lower(float Hz);
     //2) boost frequencies
-    void boost(float Hz);
+    float boost(float Hz);
     //3) cut frequencies
     bool highPass(bool on);
 };
 
-struct Compressor {
+struct Compressor 
+{
     //1) threshold
     float threshold = 0.0;
     //2) atack
@@ -293,7 +307,8 @@ struct Compressor {
     void controlDynamics(float threshold, float atack, float release,float ratio);
 };
 
-struct InputControls {
+struct InputControls 
+{
     //1) hi-z selector switch
     bool highImpedanceOn = false;
     //2) line selector switch
@@ -310,10 +325,11 @@ struct InputControls {
     //2) turn on phantom power
     void togglePhantomPower(bool phantomOn);
     //3) adjust input gain
-    void inputGain(int level);
+    int inputGain(int level);
 };
 
-struct RoutingControls {
+struct RoutingControls 
+{
     //1) send level
     int sendLevel = 0;
     //2) post fader selector switch
@@ -330,10 +346,11 @@ struct RoutingControls {
     //2) mute channel
     void toggleMute(bool mute);
     //3) adjust volume
-    void setVolume(int level);
+    int setVolume(int level);
 };
 
-struct SendFXControls {
+struct SendFXControls 
+{
     //1) send 1 effect type
     std::string effect1Selected = "Reverb";
     //2) send 2 effect type
@@ -348,12 +365,13 @@ struct SendFXControls {
     //1) add effects to audio signal
     void addFX(int fxSelected, int gainLevel);
     //2) send audio to external effects
-    void sendToFx(int gainLevel);
+    int sendToFx(int gainLevel);
     //3) send monitor sub mixes
-    void sendToMonitorOutput(int gainLevel);
+    int sendToMonitorOutput(int gainLevel);
 };
 
-struct ChannelStrip {
+struct ChannelStrip 
+{
     //1) equalizer controls
     Equalizer equalizer;
     //2) compressor controls
@@ -366,11 +384,11 @@ struct ChannelStrip {
     SendFXControls sends;
 
     //1) adjust input gain
-    void setInputGain(InputControls input);
+    InputControls setInputGain(InputControls input);
     //2) adjust input frequencies with the equalizer
-    void setTone(Equalizer eq);
+    Equalizer setTone(Equalizer eq);
     //3) control audio dynamics through the compressor
-    void compress(Compressor compressor);
+    Compressor compress(Compressor compressor);
 };
 
 /*
